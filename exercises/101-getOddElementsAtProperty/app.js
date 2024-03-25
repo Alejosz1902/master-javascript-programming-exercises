@@ -1,6 +1,10 @@
 function getOddElementsAtProperty(obj, key) {
     // your code here
-    
+    if (Array.isArray(obj[key])){
+      return obj[key].filter(element => element % 2 !== 0);
+    } else {
+      return [];
+    }
 }
 
 let obj = {

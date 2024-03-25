@@ -19,7 +19,23 @@ let currentInventory = [
 
 function renderAverageCostPerDesigner(inventory) {
     // your code here
-  
+    let result = [];
+
+    for (let designer of inventory) {
+    let designerName = designer.name;
+    let shoes = designer.shoes;
+    let totalCost = 0;
+
+    for (let shoe of shoes) {
+      totalCost += shoe.price;
+    }
+
+    let averagePrice = totalCost / shoes.length;
+
+    result.push({ name: designerName, averagePrice: Math.round(averagePrice) });
+  }
+
+  return result;
 }
 
 console.log(renderAverageCostPerDesigner(currentInventory));

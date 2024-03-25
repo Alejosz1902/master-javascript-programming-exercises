@@ -19,7 +19,28 @@ let currentInventory = [
 
 function getLaceNameDataForShoes(inventory) {
     // your code here
-    
+    let result = [];
+
+    for (let designer of inventory) {
+      let shoes = designer.shoes;
+
+      for (let shoe of shoes) {
+        let name = shoe.name;
+  
+        if (name.includes('lace') || name.includes('laced')) {
+          let words = name.split(' ');
+  
+          let targetWordIndex = words.findIndex(word => word.includes('lace') || word.includes('laced'));
+  
+          result.push({
+            nameWords: words,
+            targetWordIndex: targetWordIndex
+          });
+        }
+      }
+    }
+  
+    return result;
 }
 
 console.log(getLaceNameDataForShoes(currentInventory));

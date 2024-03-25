@@ -19,7 +19,20 @@ let currentInventory = [
 
 function renderInventory(shoeList) {
     // your code here
-    
+    let result = [];
+
+    for (let designer of shoeList) {
+      let brandName = designer.name;
+      let shoes = designer.shoes;
+  
+      let blackShoes = shoes.filter(shoe => shoe.name.includes('black'));
+  
+      for (let shoe of blackShoes) {
+        result.push([brandName, shoe.name, shoe.price]);
+      }
+    }
+  
+    return result;
 }
 
 console.log(renderInventory(currentInventory));

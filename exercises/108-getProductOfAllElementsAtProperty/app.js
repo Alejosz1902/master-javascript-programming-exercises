@@ -1,6 +1,10 @@
 function getProductOfAllElementsAtProperty(obj, key) {
     // your code here
-    
+    if (Array.isArray(obj[key]) && obj[key].length > 0){
+      return obj[key].reduce((accumulator,currentValue) => accumulator * currentValue,1);
+    } else {
+      return 0;
+    }
 }
 
 let obj = {
